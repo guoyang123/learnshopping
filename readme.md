@@ -88,8 +88,63 @@
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8
  ```
  ### 类别表
+ ```
+ create table neuedu_category(
+ `id`          int(11)     not null   auto_increment  comment '类别id',       
+ `parent_id`   int(11)     not null   default 0 comment '父类id'  ,
+ `name`        varchar(50) not null   comment '类别名称',
+ `status`      int(4)  default 1 comment '类别状态 1:正常 0:废弃',
+ `create_time`   datetime    comment '创建时间',
+  `update_time`  datetime   comment '修改时间',
+   PRIMARY KEY(`id`)
+  )ENGINE=InnoDB DEFAULT CHARSET=UTF8
+
+                    id     parent_id
+ 电子产品    1       1         0
+ 家电        2       2         1 
+ 手机        2       3         1
+ 电脑        2       4         1
+ 相机        2       5         1
+ 华为手机    3       6         3
+ 小米手机    3       7         3
+ p系列       4       8         6
+ mate系列    4       9         6
+ 
+ 查询电子产品的商品----> 递归
+ 
+ ```
+
  ### 商品表
+  create table neuedu_product(
+ `id`          int(11)       not null   auto_increment  comment '商品id',    
+ `category_id`   int(11)      not null comment'商品所属的类别id,值引用类别表的id',
+ `name`         varchar(100)  not null comment '商品名称',
+ `detail`       text         comment '商品详情',
+ `subtitle`     varchar(200)  comment  '商品副标题',  
+ `main_image`   varchar(100)  comment '商品主图', 
+ `sub_images`   varchar(200)  comment '商品子图',
+ `price`        decimal(20,2) not null  comment '商品价格,总共20位，小数2位，正数18位',
+ `stock`        int(11)       comment '商品库存',
+ `status`       int(6)     default 1   comment '商品状态 1:在售 2:下架 3:删除',
+ `create_time`   datetime    comment '创建时间',
+ `update_time`  datetime   comment '修改时间',
+  PRIMARY KEY(`id`)
+ )ENGINE=InnoDB DEFAULT CHARSET=UTF8
+ 
  ### 购物车表
+   create table neuedu_cart(
+  `id`          int(11)       not null   auto_increment  comment '购物车id',  
+  `user_id`     int(11)       not null comment '用户id',
+  `product_id`  int(11)       not null comment '商品id',
+   `quantity`   int(11)       not null  comment '购买数量',
+   `checked`    int(4)        default 1 comment '1:选中 0:未选中', 
+  `create_time`   datetime    comment '创建时间',
+  `update_time`  datetime   comment '修改时间',
+    PRIMARY KEY(`id`),
+    key `user_id_index`(`user_id`) USING BTREE
+   )ENGINE=InnoDB DEFAULT CHARSET=UTF8
+  
+ 
  ### 订单表
  ### 订单明细表
  ### 支付表
