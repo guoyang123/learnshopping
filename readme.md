@@ -64,6 +64,42 @@
  git merge dev
  git push origin master
  ```   
+ ## 数据库设计
+ ### 创建数据库
+ ```
+  create database ilearnshopping;
+  use ilearnshopping;
+ ```
+ ### 用户表
+ ```
+ create table neuedu_user(
+ `id`         int(11)     not null   auto_increment  comment '用户id',
+ `username`   varchar(50) not null   comment '用户名',
+ `password`   varchar(50) not null   comment '密码',
+ `email`      varchar(50) not null   comment '邮箱',
+ `phone`      varchar(11) not null   comment '联系方式', 
+ `question`   varchar(100) not null  comment '密保问题',
+ `answer`     varchar(100) not null  comment '答案',
+ `role`       int(4)       not null  default 0  comment '用户角色',
+ `create_time`   datetime    comment '创建时间',
+ `update_time`  datetime   comment '修改时间',
+  PRIMARY KEY(`id`),
+  UNIQUE KEY `user_name_index`(`username`) USING BTREE
+ )ENGINE=InnoDB DEFAULT CHARSET=UTF8
+ ```
+ ### 类别表
+ ### 商品表
+ ### 购物车表
+ ### 订单表
+ ### 订单明细表
+ ### 支付表
+ ### 地址表
+ 
+ 
+ 
+ 
+ 
+ 
    
     
  
