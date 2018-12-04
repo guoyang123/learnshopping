@@ -57,12 +57,13 @@
   ##### 阿里云部署
  # --------20181204------------ 
 ## 远程分支合并dev分支
- ### git checkout dev
- ### git pull origin dev
- ### git checkout master
- ### git merge dev
- ### git push origin master
-    
+ ```
+ git checkout dev
+ git pull origin dev
+ git checkout master
+ git merge dev
+ git push origin master
+ ```   
    
     
  
