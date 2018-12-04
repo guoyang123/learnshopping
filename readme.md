@@ -190,6 +190,7 @@
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8
  ```
  ### 支付表
+ ```
   create table neuedu_payinfo(
   `id`           int(11)    not null  auto_increment comment '主键',
   `order_no`     bigint(20) not null  comment '订单编号',
@@ -201,7 +202,7 @@
   `update_time`    datetime  default null  comment '更新时间',
    PRIMARY KEY(`id`)
   )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- 
+ ```
  ### 地址表
  ```
  create table neuedu_shipping(
