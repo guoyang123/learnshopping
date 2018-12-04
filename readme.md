@@ -115,6 +115,7 @@
  ```
 
  ### 商品表
+ ```
   create table neuedu_product(
  `id`          int(11)       not null   auto_increment  comment '商品id',    
  `category_id`   int(11)      not null comment'商品所属的类别id,值引用类别表的id',
@@ -130,8 +131,9 @@
  `update_time`  datetime   comment '修改时间',
   PRIMARY KEY(`id`)
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8
- 
+ ```
  ### 购物车表
+ ```
    create table neuedu_cart(
   `id`          int(11)       not null   auto_increment  comment '购物车id',  
   `user_id`     int(11)       not null comment '用户id',
@@ -143,7 +145,7 @@
     PRIMARY KEY(`id`),
     key `user_id_index`(`user_id`) USING BTREE
    )ENGINE=InnoDB DEFAULT CHARSET=UTF8
-  
+  ```
  
  ### 订单表
  ### 订单明细表
