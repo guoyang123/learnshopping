@@ -1,4 +1,4 @@
-#dev
+
 ## 电商项目-需求分析
 ### 核心-购买
 
@@ -55,6 +55,15 @@
   ###### 查看支付状态
  #### 八、线上部署
   ##### 阿里云部署
+ ##### --------20181204------------ 
+## 远程分支合并dev分支
+ ### git checkout dev
+ ### git pull origin dev
+ ### git checkout master
+ ### git merge dev
+ ### git push origin master
+    
+   
     
  
  
