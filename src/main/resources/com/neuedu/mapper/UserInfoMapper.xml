@@ -75,4 +75,18 @@
     update_time
     from neuedu_user
   </select>
+
+  <select id="checkUsernme" parameterType="string" resultType="int">
+
+     select count(1) from neuedu_user where username=#{username}
+  </select>
+
+  <select id="selectUserByUsernameAndPassword" parameterType="map" resultMap="BaseResultMap">
+     select id, username, password, email, phone, question, answer, role, create_time,
+    update_time
+    from neuedu_user where username=#{username} and password=#{password}
+
+  </select>
+
+
 </mapper>
